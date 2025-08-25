@@ -61,7 +61,7 @@ hr {
 musicals_data = [
     {
         "title": "프랑켄슈타인",
-        "poster_url": "https://placehold.co/600x848/000000/FFFFFF?text=Frankenstein",
+        "poster_url": "http://googleusercontent.com/file_content/3",
         "summary": "19세기 유럽, 천재 과학자 빅터 프랑켄슈타인이 생명 창조에 성공하지만, 그가 만든 피조물에게 '괴물'이라는 이름으로 버림받으며 비극이 시작됩니다.",
         "cast": {
             "빅터 프랑켄슈타인": ["류정한", "유준상", "전동석", "민우혁", "규현"],
@@ -72,7 +72,7 @@ musicals_data = [
     },
     {
         "title": "지킬앤하이드",
-        "poster_url": "https://placehold.co/600x848/000000/FFFFFF?text=Jekyll+%26+Hyde",
+        "poster_url": "http://googleusercontent.com/file_content/5",
         "summary": "인간의 내면에 공존하는 선과 악을 분리하려는 의사 '지킬'이 실험을 통해 자신의 또 다른 인격인 '하이드'를 만들어내면서 벌어지는 비극적 스릴러입니다.",
         "cast": {
             "지킬/하이드": ["조승우", "류정한", "홍광호", "박은태", "전동석", "신성록", "박건형", "민우혁"],
@@ -82,7 +82,7 @@ musicals_data = [
     },
     {
         "title": "오페라의 유령",
-        "poster_url": "https://placehold.co/600x848/000000/FFFFFF?text=The+Phantom+of+the+Opera",
+        "poster_url": "http://googleusercontent.com/file_content/4",
         "summary": "파리 오페라 하우스 지하에 숨어 사는 천재 음악가 '유령'과 프리마돈나 '크리스틴', 그리고 귀족 '라울'의 비극적이고 아름다운 사랑 이야기입니다.",
         "cast": {
             "유령(팬텀)": ["윤영석", "홍광호", "박효신", "조승우", "최재림", "전동석"],
@@ -92,7 +92,7 @@ musicals_data = [
     },
     {
         "title": "레미제라블",
-        "poster_url": "https://placehold.co/600x848/000000/FFFFFF?text=Les+Miserables",
+        "poster_url": "http://googleusercontent.com/file_content/6",
         "summary": "빵 한 조각을 훔친 죄로 19년간 감옥살이를 한 장발장의 기구한 인생을 통해 인간의 존엄성과 사랑, 용서를 다룬 빅토르 위고 원작의 대서사시입니다.",
         "cast": {
             "장발장": ["정성화", "양준모", "민우혁", "최재림"],
@@ -102,7 +102,7 @@ musicals_data = [
     },
     {
         "title": "데스노트",
-        "poster_url": "https://placehold.co/600x848/000000/FFFFFF?text=Death+Note",
+        "poster_url": "http://googleusercontent.com/file_content/7",
         "summary": "이름이 적히면 죽는 '데스노트'를 손에 넣은 천재 고등학생 라이토와 명탐정 엘(L)의 치열한 두뇌 싸움을 그린, 동명 만화 원작의 뮤지컬입니다.",
         "cast": {
             "야가미 라이토": ["홍광호", "고은성", "김성철"],
@@ -113,7 +113,7 @@ musicals_data = [
     },
     {
         "title": "드라큘라",
-        "poster_url": "https://placehold.co/600x848/000000/FFFFFF?text=Dracula",
+        "poster_url": "http://googleusercontent.com/file_content/8",
         "summary": "수백 년 동안 한 여인만을 사랑해 온 드라큘라 백작의 이야기를 다룹니다. 거부할 수 없는 매력의 뱀파이어와 그를 둘러싼 인물들의 운명적인 사랑과 갈등을 그립니다.",
         "cast": {
             "드라큘라": ["김준수", "전동석", "신성록", "류정한"],
@@ -123,7 +123,7 @@ musicals_data = [
     },
     {
         "title": "레베카",
-        "poster_url": "https://placehold.co/600x848/000000/FFFFFF?text=Rebecca",
+        "poster_url": "http://googleusercontent.com/file_content/9",
         "summary": "죽은 전 부인 '레베카'의 그림자가 드리운 맨덜리 저택에 새로 들어온 '나(I)'가 집사 '댄버스 부인'과 맞서며 사랑과 자아를 찾아가는 미스터리 스릴러입니다.",
         "cast": {
             "막심 드 윈터": ["류정한", "민영기", "엄기준", "송창의", "카이", "신성록"],
@@ -133,7 +133,7 @@ musicals_data = [
     },
     {
         "title": "엘리자벳",
-        "poster_url": "https://placehold.co/600x848/000000/FFFFFF?text=Elisabeth",
+        "poster_url": "http://googleusercontent.com/file_content/10",
         "summary": "오스트리아 황후 '엘리자벳'의 일대기에 '죽음(Der Tod)'이라는 판타지적 요소를 더해, 자유를 갈망했던 그녀의 삶을 드라마틱하게 그린 작품입니다.",
         "cast": {
             "엘리자벳": ["옥주현", "김소현", "신영숙", "이지혜", "김선영"],
@@ -143,7 +143,7 @@ musicals_data = [
     },
     {
         "title": "위키드",
-        "poster_url": "https://placehold.co/600x848/000000/FFFFFF?text=Wicked",
+        "poster_url": "http://googleusercontent.com/file_content/11",
         "summary": "도로시가 오즈에 오기 전, 초록 마녀 엘파바와 금발 마녀 글린다의 숨겨진 우정과 성장을 통해 선과 악의 편견을 깨는 감동적인 이야기입니다.",
         "cast": {
             "엘파바": ["옥주현", "박혜나", "차지연", "손승연"],
@@ -153,7 +153,7 @@ musicals_data = [
     },
     {
         "title": "헤드윅",
-        "poster_url": "https://placehold.co/600x848/000000/FFFFFF?text=Hedwig",
+        "poster_url": "http://googleusercontent.com/file_content/12",
         "summary": "동독 출신의 트랜스젠더 록 가수 '헤드윅'이 자신의 실패한 사랑과 음악 인생에 대한 이야기를 콘서트 형식으로 풀어내는 모노드라마 뮤지컬입니다.",
         "cast": {
             "헤드윅": ["조승우", "오만석", "조정석", "유연석", "전동석", "마이클리", "정문성", "이규형", "렌"],
