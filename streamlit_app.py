@@ -7,6 +7,48 @@ st.set_page_config(
     layout="wide"
 )
 
+# --- 세련된 배경과 커스텀 스타일 적용 ---
+# CSS를 사용하여 배경에 그라데이션을 추가하고 전체적인 폰트 색상을 조정합니다.
+st.markdown("""
+<style>
+/* Streamlit 앱의 메인 배경 */
+.stApp {
+    background-image: linear-gradient(135deg, #1a2a6c, #000000);
+    background-attachment: fixed;
+    background-size: cover;
+    color: #e0e0e0; /* 기본 텍스트 색상을 밝게 */
+}
+
+/* 헤더와 제목 색상 */
+h1, h2, h3 {
+    color: #ffffff;
+}
+
+/* 검색창 스타일 */
+.stTextInput > div > div > input {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    border-radius: 20px;
+}
+
+/* 확장(expander) 컴포넌트 스타일 */
+.stExpander {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+}
+.stExpander header {
+    color: #e0e0e0 !important;
+}
+
+/* 구분선 색상 */
+hr {
+    background-color: #444444;
+}
+
+</style>
+""", unsafe_allow_html=True)
+
+
 # --- 뮤지컬 데이터 (25개) ---
 # 각 뮤지컬 정보는 딕셔너리 형태로, 전체는 리스트로 관리합니다.
 musicals_data = [
@@ -246,7 +288,7 @@ st.title("🎭 한국 뮤지컬 대백과")
 st.write("한국 뮤지컬의 모든 것을 한눈에! 제목과 배우 이름으로 검색해보세요.")
 
 # 검색창
-search_term = st.text_input("검색어를 입력하세요...", placeholder="뮤지컬 제목 또는 배우 이름")
+search_term = st.text_input("", placeholder="뮤지컬 제목 또는 배우 이름을 검색하세요...", label_visibility="collapsed")
 
 # 검색 로직
 filtered_musicals = []
@@ -277,11 +319,14 @@ else:
 if not filtered_musicals:
     st.warning(f"'{search_term}'에 대한 검색 결과가 없습니다.")
 else:
-    st.info(f"총 {len(filtered_musicals)}개의 뮤지컬을 찾았습니다.")
+    if search_term:
+        st.info(f"총 {len(filtered_musicals)}개의 뮤지컬을 찾았습니다.")
+    
     st.divider() # 구분선
 
     for musical in filtered_musicals:
-        st.header(musical['title'])
+        # st.header(musical['title'])
+        st.markdown(f"## <span style='color: #C0A062;'>{musical['title']}</span>", unsafe_allow_html=True)
         st.write(musical['summary'])
 
         # 출연진 정보는 확장 가능한 형태로 보여줌
@@ -291,4 +336,3 @@ else:
                 st.markdown(f"**{role}:** {', '.join(actors)}")
         
         st.divider() # 각 뮤지컬 정보 사이에 구분선 추가
-
