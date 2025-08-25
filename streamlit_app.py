@@ -8,12 +8,61 @@ st.set_page_config(
     layout="wide"
 )
 
+# --- 세련된 배경과 커스텀 스타일 적용 ---
+st.markdown("""
+<style>
+/* Streamlit 앱의 메인 배경 */
+.stApp {
+    background-image: linear-gradient(135deg, #1a2a6c, #000000);
+    background-attachment: fixed;
+    background-size: cover;
+    color: #e0e0e0; /* 기본 텍스트 색상을 밝게 */
+}
+
+/* 헤더와 제목 색상 */
+h1, h2, h3 {
+    color: #ffffff;
+}
+
+/* 검색창 스타일 */
+.stTextInput > div > div > input {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    border-radius: 20px;
+}
+
+/* 확장(expander) 컴포넌트 스타일 */
+.stExpander {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+}
+.stExpander header {
+    color: #e0e0e0 !important;
+}
+
+/* 구분선 색상 */
+hr {
+    background-color: #444444;
+}
+
+/* 포스터 이미지 스타일 */
+.stImage img {
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    margin-bottom: 1rem;
+}
+
+</style>
+""", unsafe_allow_html=True)
+
+
 # --- 뮤지컬 데이터 (30개) ---
-# 각 뮤지컬 정보에 포스터 URL과 테마 배경 CSS를 추가합니다.
+# 각 뮤지컬 정보에 포스터 URL을 추가합니다.
+# 실제 이미지는 Base64로 인코딩하여 코드에 직접 포함합니다.
 musicals_data = [
     {
         "title": "프랑켄슈타인",
-        "poster_url": /workspaces/blank-app-8/스크린샷 2025-08-25 오전 9.30.17.png,
+        "poster_url": "http://googleusercontent.com/file_content/3",
         "background_css": "linear-gradient(135deg, #2c3e50, #4a5a6a, #000000)", # 폭풍우 치는 밤, 차가운 실험실
         "summary": "19세기 유럽, 천재 과학자 빅터 프랑켄슈타인이 생명 창조에 성공하지만, 그가 만든 피조물에게 '괴물'이라는 이름으로 버림받으며 비극이 시작됩니다.",
         "cast": {
@@ -25,7 +74,7 @@ musicals_data = [
     },
     {
         "title": "지킬앤하이드",
-        "poster_url": /workspaces/blank-app-8/스크린샷 2025-08-25 오전 9.30.55.png,
+        "poster_url": "http://googleusercontent.com/file_content/5",
         "background_css": "linear-gradient(135deg, #4d0000, #1a0000, #000000)", # 붉은 약물, 어두운 런던의 밤
         "summary": "인간의 내면에 공존하는 선과 악을 분리하려는 의사 '지킬'이 실험을 통해 자신의 또 다른 인격인 '하이드'를 만들어내면서 벌어지는 비극적 스릴러입니다.",
         "cast": {
@@ -36,7 +85,7 @@ musicals_data = [
     },
     {
         "title": "오페라의 유령",
-        "poster_url": /workspaces/blank-app-8/스크린샷 2025-08-25 오전 9.30.30.png,
+        "poster_url": "http://googleusercontent.com/file_content/4",
         "background_css": "linear-gradient(135deg, #000033, #1a0000, #000000)", # 깊은 지하, 붉은 장미, 푸른 밤
         "summary": "파리 오페라 하우스 지하에 숨어 사는 천재 음악가 '유령'과 프리마돈나 '크리스틴', 그리고 귀족 '라울'의 비극적이고 아름다운 사랑 이야기입니다.",
         "cast": {
@@ -47,7 +96,7 @@ musicals_data = [
     },
     {
         "title": "레미제라블",
-        "poster_url": /workspaces/blank-app-8/스크린샷 2025-08-25 오전 9.31.27.png,
+        "poster_url": "http://googleusercontent.com/file_content/6",
         "background_css": "linear-gradient(135deg, #001f4d, #3d0000, #2a2a2a)", # 프랑스 국기, 혁명의 어둠
         "summary": "빵 한 조각을 훔친 죄로 19년간 감옥살이를 한 장발장의 기구한 인생을 통해 인간의 존엄성과 사랑, 용서를 다룬 빅토르 위고 원작의 대서사시입니다.",
         "cast": {
@@ -58,7 +107,7 @@ musicals_data = [
     },
     {
         "title": "데스노트",
-        "poster_url": /workspaces/blank-app-8/스크린샷 2025-08-25 오전 9.31.52.png,
+        "poster_url": "http://googleusercontent.com/file_content/7",
         "background_css": "linear-gradient(135deg, #330000, #1a1a1a, #4a0000)", # 붉은 사과, 사신계의 어둠
         "summary": "이름이 적히면 죽는 '데스노트'를 손에 넣은 천재 고등학생 라이토와 명탐정 엘(L)의 치열한 두뇌 싸움을 그린, 동명 만화 원작의 뮤지컬입니다.",
         "cast": {
@@ -70,7 +119,7 @@ musicals_data = [
     },
     {
         "title": "드라큘라",
-        "poster_url": /workspaces/blank-app-8/스크린샷 2025-08-25 오전 9.32.29.png,
+        "poster_url": "http://googleusercontent.com/file_content/8",
         "background_css": "linear-gradient(135deg, #6b0000, #000000)", # 핏빛 사랑, 영원한 밤
         "summary": "수백 년 동안 한 여인만을 사랑해 온 드라큘라 백작의 이야기를 다룹니다. 거부할 수 없는 매력의 뱀파이어와 그를 둘러싼 인물들의 운명적인 사랑과 갈등을 그립니다.",
         "cast": {
@@ -81,7 +130,7 @@ musicals_data = [
     },
     {
         "title": "레베카",
-        "poster_url": /workspaces/blank-app-8/스크린샷 2025-08-25 오전 9.32.42.png,
+        "poster_url": "http://googleusercontent.com/file_content/9",
         "background_css": "linear-gradient(135deg, #00264d, #333333)", # 맨덜리 저택의 밤바다, 불길한 그림자
         "summary": "죽은 전 부인 '레베카'의 그림자가 드리운 맨덜리 저택에 새로 들어온 '나(I)'가 집사 '댄버스 부인'과 맞서며 사랑과 자아를 찾아가는 미스터리 스릴러입니다.",
         "cast": {
@@ -92,7 +141,7 @@ musicals_data = [
     },
     {
         "title": "엘리자벳",
-        "poster_url": /workspaces/blank-app-8/스크린샷 2025-08-25 오전 9.32.57.png,
+        "poster_url": "http://googleusercontent.com/file_content/10",
         "background_css": "linear-gradient(135deg, #2a2a2a, #5c5c8a, #000000)", # 죽음의 그림자, 황실의 차가움
         "summary": "오스트리아 황후 '엘리자벳'의 일대기에 '죽음(Der Tod)'이라는 판타지적 요소를 더해, 자유를 갈망했던 그녀의 삶을 드라마틱하게 그린 작품입니다.",
         "cast": {
@@ -103,7 +152,7 @@ musicals_data = [
     },
     {
         "title": "위키드",
-        "poster_url": /workspaces/blank-app-8/스크린샷 2025-08-25 오전 9.33.14.png,
+        "poster_url": "http://googleusercontent.com/file_content/11",
         "background_css": "linear-gradient(135deg, #00552e, #000000)", # 에메랄드 시티의 빛과 그림자
         "summary": "도로시가 오즈에 오기 전, 초록 마녀 엘파바와 금발 마녀 글린다의 숨겨진 우정과 성장을 통해 선과 악의 편견을 깨는 감동적인 이야기입니다.",
         "cast": {
@@ -114,7 +163,7 @@ musicals_data = [
     },
     {
         "title": "헤드윅",
-        "poster_url": /workspaces/blank-app-8/스크린샷 2025-08-25 오전 9.33.52.png,
+        "poster_url": "http://googleusercontent.com/file_content/12",
         "background_css": "linear-gradient(135deg, #ff0066, #330066, #000000)", # 화려한 글램록, 상처의 푸른빛
         "summary": "동독 출신의 트랜스젠더 록 가수 '헤드윅'이 자신의 실패한 사랑과 음악 인생에 대한 이야기를 콘서트 형식으로 풀어내는 모노드라마 뮤지컬입니다.",
         "cast": {
@@ -124,7 +173,7 @@ musicals_data = [
     },
     {
         "title": "영웅",
-        "poster_url": /workspaces/blank-app-8/스크린샷 2025-08-25 오전 9.34.07.png,
+        "poster_url": "http://googleusercontent.com/file_content/13",
         "background_css": "linear-gradient(135deg, #4a4a4a, #1a1a1a)", # 하얼빈의 눈, 굳은 결의
         "summary": "1909년, 하얼빈역에서 이토 히로부미를 저격한 안중근 의사의 마지막 1년을 그린 대한민국 대표 창작 뮤지컬입니다.",
         "cast": {
@@ -135,7 +184,7 @@ musicals_data = [
     },
     {
         "title": "웃는 남자",
-        "poster_url": /workspaces/blank-app-8/스크린샷 2025-08-25 오전 9.34.22.png,
+        "poster_url": "http://googleusercontent.com/file_content/14",
         "background_css": "linear-gradient(135deg, #b30000, #2a002a, #000000)", # 붉은 귀족, 보랏빛 슬픔
         "summary": "17세기 영국, 찢어진 입을 가진 기형적인 외모의 '그윈플렌'이 유랑극단에서 광대로 살아가며 겪는 사랑과 사회 부조리에 대한 이야기입니다.",
         "cast": {
@@ -147,7 +196,7 @@ musicals_data = [
     },
     {
         "title": "노트르담 드 파리",
-        "poster_url": /workspaces/blank-app-8/스크린샷 2025-08-25 오전 9.34.46.png,
+        "poster_url": "http://googleusercontent.com/file_content/15",
         "background_css": "linear-gradient(135deg, #4a2a00, #1a1a1a)", # 대성당의 석양, 스테인드글라스
         "summary": "15세기 파리, 추악한 외모의 꼽추 종지기 '콰지모도'와 아름다운 집시 여인 '에스메랄다', 그리고 그녀를 둘러싼 세 남자의 비극적인 사랑과 숙명을 그린 작품입니다.",
         "cast": {
@@ -158,7 +207,7 @@ musicals_data = [
     },
     {
         "title": "모차르트!",
-        "poster_url": /workspaces/blank-app-8/스크린샷 2025-08-25 오전 9.35.08.png,
+        "poster_url": "http://googleusercontent.com/file_content/16",
         "background_css": "linear-gradient(135deg, #cc0000, #333333)", # 천재의 붉은 코트, 운명의 그림자
         "summary": "천재 음악가 모차르트의 삶을 그리고 있지만, 그의 천재성을 상징하는 아이 '아마데'와의 갈등을 통해 자유를 갈망했던 인간 '볼프강'의 고뇌를 조명합니다.",
         "cast": {
