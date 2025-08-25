@@ -1,4 +1,5 @@
 import streamlit as st
+import base64
 
 # --- 페이지 기본 설정 ---
 st.set_page_config(
@@ -8,7 +9,6 @@ st.set_page_config(
 )
 
 # --- 세련된 배경과 커스텀 스타일 적용 ---
-# CSS를 사용하여 배경에 그라데이션을 추가하고 전체적인 폰트 색상을 조정합니다.
 st.markdown("""
 <style>
 /* Streamlit 앱의 메인 배경 */
@@ -58,6 +58,7 @@ hr {
 
 # --- 뮤지컬 데이터 (30개) ---
 # 각 뮤지컬 정보에 포스터 URL을 추가합니다.
+# 실제 이미지는 Base64로 인코딩하여 코드에 직접 포함합니다.
 musicals_data = [
     {
         "title": "프랑켄슈타인",
@@ -162,7 +163,7 @@ musicals_data = [
     },
     {
         "title": "영웅",
-        "poster_url": "https://placehold.co/600x848/000000/FFFFFF?text=Hero",
+        "poster_url": "http://googleusercontent.com/file_content/13",
         "summary": "1909년, 하얼빈역에서 이토 히로부미를 저격한 안중근 의사의 마지막 1년을 그린 대한민국 대표 창작 뮤지컬입니다.",
         "cast": {
             "안중근": ["정성화", "양준모", "민우혁", "류정한", "신성록"],
@@ -172,7 +173,7 @@ musicals_data = [
     },
     {
         "title": "웃는 남자",
-        "poster_url": "https://placehold.co/600x848/000000/FFFFFF?text=The+Man+Who+Laughs",
+        "poster_url": "http://googleusercontent.com/file_content/14",
         "summary": "17세기 영국, 찢어진 입을 가진 기형적인 외모의 '그윈플렌'이 유랑극단에서 광대로 살아가며 겪는 사랑과 사회 부조리에 대한 이야기입니다.",
         "cast": {
             "그윈플렌": ["박효신", "박강현", "수호", "박은태", "규현"],
@@ -183,7 +184,7 @@ musicals_data = [
     },
     {
         "title": "노트르담 드 파리",
-        "poster_url": "https://placehold.co/600x848/000000/FFFFFF?text=Notre+Dame+de+Paris",
+        "poster_url": "http://googleusercontent.com/file_content/15",
         "summary": "15세기 파리, 추악한 외모의 꼽추 종지기 '콰지모도'와 아름다운 집시 여인 '에스메랄다', 그리고 그녀를 둘러싼 세 남자의 비극적인 사랑과 숙명을 그린 작품입니다.",
         "cast": {
             "콰지모도": ["윤형렬", "홍광호", "케이윌", "정성화", "마이클리"],
@@ -193,7 +194,7 @@ musicals_data = [
     },
     {
         "title": "모차르트!",
-        "poster_url": "https://placehold.co/600x848/000000/FFFFFF?text=Mozart!",
+        "poster_url": "http://googleusercontent.com/file_content/16",
         "summary": "천재 음악가 모차르트의 삶을 그리고 있지만, 그의 천재성을 상징하는 아이 '아마데'와의 갈등을 통해 자유를 갈망했던 인간 '볼프강'의 고뇌를 조명합니다.",
         "cast": {
             "볼프강 모차르트": ["박효신", "김준수", "박은태", "전동석", "규현", "수호", "김희재"],
@@ -203,7 +204,7 @@ musicals_data = [
     },
     {
         "title": "시카고",
-        "poster_url": "https://placehold.co/600x848/000000/FFFFFF?text=Chicago",
+        "poster_url": "http://googleusercontent.com/file_content/17",
         "summary": "1920년대 재즈 시대의 시카고, 살인을 저지르고도 스타가 되길 꿈꾸는 '록시 하트'와 '벨마 켈리'의 이야기를 통해 당시 사회의 부조리와 허영을 풍자합니다.",
         "cast": {
             "벨마 켈리": ["최정원", "윤공주", "박칼린"],
@@ -213,7 +214,7 @@ musicals_data = [
     },
     {
         "title": "맘마미아!",
-        "poster_url": "https://placehold.co/600x848/000000/FFFFFF?text=Mamma+Mia!",
+        "poster_url": "http://googleusercontent.com/file_content/18",
         "summary": "그리스의 작은 섬에서 엄마 '도나'와 사는 딸 '소피'가 자신의 결혼식을 앞두고 아빠일 가능성이 있는 세 남자를 초대하며 벌어지는 유쾌한 소동을 그립니다.",
         "cast": {
             "도나": ["최정원", "신영숙", "김선영"],
@@ -223,7 +224,7 @@ musicals_data = [
     },
     {
         "title": "킹키부츠",
-        "poster_url": "https://placehold.co/600x848/000000/FFFFFF?text=Kinky+Boots",
+        "poster_url": "http://googleusercontent.com/file_content/19",
         "summary": "폐업 위기에 처한 구두 공장을 물려받은 '찰리'가 드랙퀸 '롤라'를 만나 여장 남자를 위한 부츠 '킹키부츠'를 만들면서 벌어지는 신나는 이야기입니다.",
         "cast": {
             "롤라": ["정성화", "강홍석", "최재림", "박은태"],
@@ -233,7 +234,7 @@ musicals_data = [
     },
     {
         "title": "그날들",
-        "poster_url": "https://placehold.co/600x848/000000/FFFFFF?text=The+Days",
+        "poster_url": "http://googleusercontent.com/file_content/20",
         "summary": "故 김광석의 노래들로 이루어진 주크박스 뮤지컬. 청와대 경호실을 배경으로 20년 전 사라진 '그녀'와 경호원의 미스터리한 사건을 그립니다.",
         "cast": {
             "정학": ["유준상", "이건명", "최재웅", "오만석", "엄기준", "지창욱"],
@@ -243,7 +244,7 @@ musicals_data = [
     },
     {
         "title": "서편제",
-        "poster_url": "https://placehold.co/600x848/000000/FFFFFF?text=Seopyeonje",
+        "poster_url": "http://googleusercontent.com/file_content/21",
         "summary": "이청준의 동명 소설을 원작으로, 소리꾼 아버지 '유봉'과 그의 딸 '송화', 아들 '동호'의 한과 예술혼이 담긴 삶을 한국적인 정서와 음악으로 풀어낸 작품입니다.",
         "cast": {
             "송화": ["차지연", "이자람", "장은아", "이소연"],
@@ -253,7 +254,7 @@ musicals_data = [
     },
     {
         "title": "팬텀",
-        "poster_url": "https://placehold.co/600x848/000000/FFFFFF?text=Phantom",
+        "poster_url": "http://googleusercontent.com/file_content/22",
         "summary": "'오페라의 유령' 에릭의 인간적인 면모에 초점을 맞춰, 그의 비극적인 과거와 천재성, 그리고 크리스틴을 향한 순수한 사랑을 깊이 있게 다룬 작품입니다.",
         "cast": {
             "팬텀(에릭)": ["박효신", "박은태", "전동석", "카이", "규현", "류정한"],
@@ -263,7 +264,7 @@ musicals_data = [
     },
     {
         "title": "베르테르",
-        "poster_url": "https://placehold.co/600x848/000000/FFFFFF?text=Werther",
+        "poster_url": "http://googleusercontent.com/file_content/23",
         "summary": "괴테의 소설 '젊은 베르테르의 슬픔'을 원작으로, '롯데'를 향한 '베르테르'의 순수하고도 열정적인 사랑과 그로 인한 깊은 고뇌를 서정적인 음악으로 풀어냅니다.",
         "cast": {
             "베르테르": ["조승우", "엄기준", "규현", "카이", "유연석", "나현우"],
@@ -273,7 +274,7 @@ musicals_data = [
     },
     {
         "title": "스위니토드",
-        "poster_url": "https://placehold.co/600x848/000000/FFFFFF?text=Sweeney+Todd",
+        "poster_url": "http://googleusercontent.com/file_content/25",
         "summary": "19세기 런던, 억울한 옥살이를 하고 돌아온 이발사 '벤자민 바커'가 '스위니 토드'로 이름을 바꾸고, 자신을 불행에 빠뜨린 자들에게 잔혹한 복수를 하는 이야기입니다.",
         "cast": {
             "스위니 토드": ["조승우", "류정한", "홍광호", "박은태", "강필석", "신성록"],
@@ -283,7 +284,7 @@ musicals_data = [
     },
     {
         "title": "팬레터",
-        "poster_url": "https://placehold.co/600x848/000000/FFFFFF?text=Fan+Letter",
+        "poster_url": "http://googleusercontent.com/file_content/26",
         "summary": "1930년대 경성을 배경으로, 천재 소설가 '김해진'과 그를 동경하는 작가 지망생 '정세훈', 그리고 비밀에 싸인 천재 여류작가 '히카루'의 이야기를 다룬 미스터리 드라마입니다.",
         "cast": {
             "정세훈": ["문성일", "김성철", "려욱", "윤소호"],
@@ -293,7 +294,7 @@ musicals_data = [
     },
     {
         "title": "벤허",
-        "poster_url": "https://placehold.co/600x848/000000/FFFFFF?text=Ben-Hur",
+        "poster_url": "http://googleusercontent.com/file_content/27",
         "summary": "귀족 가문의 자제였던 '유다 벤허'가 친구의 배신으로 노예로 전락한 후, 역경을 딛고 복수에 나서는 과정을 그린 장대한 스케일의 창작 뮤지컬입니다.",
         "cast": {
             "유다 벤허": ["유준상", "박은태", "카이", "신성록", "규현"],
@@ -303,7 +304,7 @@ musicals_data = [
     },
     {
         "title": "빨래",
-        "poster_url": "https://placehold.co/600x848/000000/FFFFFF?text=Bbalae",
+        "poster_url": "http://googleusercontent.com/file_content/28",
         "summary": "서울의 한 달동네를 배경으로, 서점에서 일하는 '나영'과 몽골 출신 이주노동자 '솔롱고'를 비롯한 서민들의 팍팍하지만 따뜻한 삶의 이야기를 그립니다.",
         "cast": {
             "서나영": ["홍지희", "강연정", "김주연"],
@@ -314,7 +315,7 @@ musicals_data = [
     # --- 5개 뮤지컬 추가 ---
     {
         "title": "마리 퀴리",
-        "poster_url": "https://placehold.co/600x848/000000/FFFFFF?text=Marie+Curie",
+        "poster_url": "http://googleusercontent.com/file_content/29",
         "summary": "최초로 노벨상을 두 번 수상한 위대한 과학자 '마리 퀴리'의 삶을 다룹니다. 자신의 연구가 초래한 비극에 맞서며 진실을 찾아가는 그녀의 고뇌와 신념을 그립니다.",
         "cast": {
             "마리 퀴리": ["김소향", "옥주현", "리사"],
@@ -324,7 +325,7 @@ musicals_data = [
     },
     {
         "title": "어쩌면 해피엔딩",
-        "poster_url": "https://placehold.co/600x848/000000/FFFFFF?text=Maybe+Happy+Ending",
+        "poster_url": "http://googleusercontent.com/file_content/30",
         "summary": "가까운 미래, 인간을 돕기 위해 만들어졌지만 구형이 되어 버려진 로봇 '올리버'와 '클레어'가 만나 사랑과 삶의 의미를 배워가는 따뜻하고 서정적인 이야기입니다.",
         "cast": {
             "올리버": ["정문성", "전성우", "신성민", "임준혁"],
@@ -333,7 +334,7 @@ musicals_data = [
     },
     {
         "title": "호프",
-        "poster_url": "https://placehold.co/600x848/000000/FFFFFF?text=Hope",
+        "poster_url": "http://googleusercontent.com/file_content/32",
         "summary": "현대 문학의 거장 요제프 클라인의 미발표 원고를 평생 지켜온 78세 노인 '에바 호프'의 삶을 통해, 원고가 곧 자신이었던 한 인간의 인생을 그립니다.",
         "cast": {
             "호프": ["김선영", "차지연", "김지현"],
@@ -342,7 +343,7 @@ musicals_data = [
     },
     {
         "title": "광화문 연가",
-        "poster_url": "https://placehold.co/600x848/000000/FFFFFF?text=Gwanghwamun+Sonata",
+        "poster_url": "http://googleusercontent.com/file_content/31",
         "summary": "죽음을 앞둔 주인공 '명우'가 마지막 1분을 앞두고 '월하'와 함께 떠나는 시간 여행을 통해 자신의 젊은 날의 사랑과 우정을 되돌아보는 이야기입니다.",
         "cast": {
             "중년 명우": ["안재욱", "이건명", "강필석", "윤도현", "차지연"],
@@ -352,7 +353,7 @@ musicals_data = [
     },
     {
         "title": "사의 찬미",
-        "poster_url": "https://placehold.co/600x848/000000/FFFFFF?text=Hymn+of+Death",
+        "poster_url": "http://googleusercontent.com/file_content/24",
         "summary": "1920년대 경성, 천재 극작가 김우진과 조선 최초의 소프라노 윤심덕의 비극적인 사랑과 실화를 바탕으로 한 뮤지컬입니다.",
         "cast": {
             "김우진": ["이해준", "김종구", "진태화"],
